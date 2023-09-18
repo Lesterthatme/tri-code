@@ -78,7 +78,7 @@ public class MyJavaProgram {
 					do {		
 						if((nn1 == true) && (nn2 == true) && (nn3 == true) )
 							{
-							System.out.print("\nSequential Statement: \n\n1) Calculation the area of the rectangle\n\n2) Covert Fahrenheit to Celcius\n\n3) Compute Area, circumference and diameter of a circle \n \n Choose the structure you want:");
+							System.out.print("\nSequential Statement:  \n\n1) Calculation the area of the rectangle\n\n2) Covert Fahrenheit to Celcius\n\n3) Compute Area, circumference and diameter of a circle \n \n Choose the structure you want:");
 							}
 							else if ((nn1 == false) && (nn2 == true) && (nn3 == true))
 								{
