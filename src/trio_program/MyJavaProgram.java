@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class MyJavaProgram {
 
+
 	public static void main(String[] args) {
 		Scanner cin = new Scanner(System.in);
 		int answer, sequential, selection, iteration, again;
@@ -16,13 +17,13 @@ public class MyJavaProgram {
 		boolean t1 = true;
 		boolean t2=true;
 		boolean t3=true;
-		
 		boolean casewan = true;
 		boolean casetu = true;
 		boolean casetri = true;
-		int iterationlastchoice;
+		int iterationlastchoice; 
 		int sequentiallasatchoice;
 		int selectionlasatchoice;
+		
 		do 
 		{
 			do 
@@ -62,7 +63,8 @@ public class MyJavaProgram {
 				answer = cin.nextInt();
 				
 				
-				if((answer!= 1) && (answer!= 2) && (answer!= 3))
+				
+				if((answer != 1) && (answer != 2) && (answer != 3))
 				{
 					System.out.print("Please input a number between 1-3 \n");
 				}
@@ -108,6 +110,7 @@ public class MyJavaProgram {
 																				}
 						sequential = cin.nextInt();
 						
+						
 						if((sequential!= 1) && (sequential!= 2) && (sequential!= 3))System.out.print("\nPlease input a number between 1-3 \n");
 						
 					}while((sequential!= 1) && (sequential!= 2) && (sequential!= 3));
@@ -117,9 +120,11 @@ public class MyJavaProgram {
 							System.out.println("\n\n1) Calculation the area of the rectangle");
 							System.out.print("Enter the length: ");
 							int length = cin.nextInt();
+							
 							System.out.print("Enter the Width: ");
 							int Width = cin.nextInt();
-							System.out.println("The area of the rectangle is " + (length * length ));
+							
+							System.out.println("The area of the rectangle is " + (length * Width ));
 							break;
 							
 						case 2:
@@ -129,6 +134,7 @@ public class MyJavaProgram {
 							double fahrenheit = cin.nextDouble();
 							double resultsequential2 = (fahrenheit-32)/1.8;
 							System.out.printf("The temperature in Celcius: %.2f",  resultsequential2 );
+							
 							break;
 							
 						case 3:
@@ -137,6 +143,7 @@ public class MyJavaProgram {
 							
 							System.out.print("Enter the radius of the circle: ");
 							double radius = cin.nextDouble();
+							
 							
 							System.out.println("\nFor the diameter of the circle:");
 							System.out.println("Diameter = Two times of the radius.\nSo,\nDiameter = radius * 2\nDiameter = "+ (radius* 2) );
@@ -151,6 +158,7 @@ public class MyJavaProgram {
 						{
 							System.out.print("\nGo to sequencial(1)\nGo to exit(any key)");
 							sequentiallasatchoice = cin.nextInt();
+							
 						}
 						else
 						{
@@ -206,6 +214,7 @@ public class MyJavaProgram {
 							
 							selection = cin.nextInt();
 							
+							
 							if((selection!= 1) && (selection!= 2) && (selection!= 3)) System.out.print("\nPlease input a number between 1-3 \n");
 							
 						}while((selection!= 1) && (selection!= 2) && (selection!= 3));
@@ -253,6 +262,7 @@ public class MyJavaProgram {
 							{
 								System.out.print("\nGo to selection(1)\nGo to exit(any key)");
 								selectionlasatchoice = cin.nextInt();
+								
 							}
 							else
 							{
@@ -326,7 +336,6 @@ public class MyJavaProgram {
 									fn2 = result;
 									System.out.print( result + "\t");
 								}
-								
 								break;
 							case 2:
 								t2 = false;
@@ -334,16 +343,16 @@ public class MyJavaProgram {
 								
 								System.out.print("Enter the initial balance:\t\tPHP ");
 								double iteration2 = cin.nextDouble();
-								boolean atm = true;
 								
-								while((iteration2 >= 1) && (atm = true))
+								boolean atm = true;
+									while((iteration2 >= 1) && (atm == true))
 								{
 									System.out.print("Enter how much you want to withdraw:\tPHP ");
 									double withdraw = cin.nextDouble();
 									
 									if((iteration2 >= withdraw))
 									{
-										atm = true;
+										 atm = true;
 										if (withdraw >= 0)
 										{
 											iteration2 = iteration2 - withdraw;
@@ -359,13 +368,13 @@ public class MyJavaProgram {
 									{
 										if(withdraw >= iteration2)
 										{
+											atm = true;
 											System.out.println("Your balance is low.\nPlease enter again.\n");
 											System.out.println("The account balance is:\t\t\tPHP " + iteration2);
-											atm = true;
 										}
 										else
 										{
-										atm = false;
+											atm = false;
 										}
 									}
 								}
@@ -399,13 +408,13 @@ public class MyJavaProgram {
 								{
 								casetri = false;	
 								}
-							
 					}while(iterationlastchoice == 1);
 					break;
 			}
 			System.out.print("\nDo you want to solve again?(YES for 1)");
 			again = cin.nextInt();
 		}while(again == 1);
+		cin.close();
 	}
 
 }
