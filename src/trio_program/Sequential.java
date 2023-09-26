@@ -26,7 +26,7 @@ public class Sequential {
 			System.out.println("4. Go back to previous menu");
 			
 			System.out.print("\n Answer: ");
-			questionPicked = scanner.nextInt();
+			questionPicked = inputUtils.getInteger(scanner);
 			
 			System.out.print("\n");
 			
