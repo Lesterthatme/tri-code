@@ -68,8 +68,8 @@ public class Iteration {
 	private void atmSimulation() {
 		System.out.println("ATM Simulation");
 		System.out.println("\n \n");
-		
-		int balance = 50000;
+    System.out.println("Input initial money in ATM account: ");
+    int balance = scanner.nextInt();
 		ATM atm = new ATM(balance);
 		System.out.println("Initialized bank account with Php " + balance);		
 		boolean exitAtm = false;
