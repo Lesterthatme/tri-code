@@ -3,8 +3,8 @@ package trio_program;
 import java.util.Scanner;
 
 public class MyJavaProgram {
-	
 	public static void main(String[] args) {
+		InputUtils inputUtils = new InputUtils();
 		Scanner scanner = new Scanner(System.in);
 		Sequential sequential = new Sequential(scanner);
 		Selection selection = new Selection(scanner);
@@ -12,6 +12,7 @@ public class MyJavaProgram {
 		
 		int categoryPicked;
 		boolean exitProgram = false;
+		
 		
 		while(exitProgram != true) {
 			System.out.println("Java Programming Structure:");
@@ -22,27 +23,27 @@ public class MyJavaProgram {
 			System.out.println("\n");
 			
 			System.out.print("Answer: ");
-			
-			categoryPicked= scanner.nextInt();
-			System.out.print("\n");
-			if(categoryPicked == 1) {
-				sequential.pickAQuestion();
-			}else if(categoryPicked == 2) {
-				selection.pickAQuestion();
-			}else if (categoryPicked == 3) {
-				iteration.pickAQuestion();
-			}else if(categoryPicked == 4) {
-				System.out.println("Exiting the program...");
-				exitProgram = true;
-			}
-			else {
-				System.out.println("Invalid answer, try again");
-			}
+			try {
+	            categoryPicked = inputUtils.getInteger(scanner);
+	            System.out.print("\n");
+	            if (categoryPicked == 1) {
+	                sequential.pickAQuestion();
+	            } else if (categoryPicked == 2) {
+	                selection.pickAQuestion();
+	            } else if (categoryPicked == 3) {
+	                iteration.pickAQuestion();
+	            } else if (categoryPicked == 4) {
+	                System.out.println("Exiting the program...");
+	                exitProgram = true;
+	            } else {
+	                System.out.println("Invalid answer, try again");
+	            }
+	        } catch (Exception e) {
+	            System.out.println("\nInvalid input \n \n");
+	            scanner.nextLine();
+	        }
 		}
-		
-		
-		
-		
+		scanner.close();			
 	}
 	
 	

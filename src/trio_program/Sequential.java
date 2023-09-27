@@ -7,6 +7,7 @@ import java.util.Set;
 public class Sequential {
 	private Scanner scanner;
 	private Set<Integer> questionsVisited = new HashSet<Integer>();
+	private InputUtils inputUtils= new InputUtils();
 	
 	public Sequential(Scanner scanner) {
 		this.scanner = scanner;
@@ -25,7 +26,7 @@ public class Sequential {
 			System.out.println("4. Go back to previous menu");
 			
 			System.out.print("\n Answer: ");
-			questionPicked = scanner.nextInt();
+			questionPicked = inputUtils.getInteger(scanner);
 			
 			System.out.print("\n");
 			
@@ -57,11 +58,11 @@ public class Sequential {
 		
 		 double radius,diameter,circumference, area;
          System.out.println("Enter radius: ");
-         radius = scanner.nextDouble();
+         radius = inputUtils.getPositiveInteger(scanner);
 
-         diameter = 2*radius;
-         circumference = 2*Math.PI*radius;
-         area = 3.14*(radius*radius);
+         diameter = 2 * radius;
+         circumference = 2 * Math.PI * radius;
+         area = Math.PI *(radius*radius);
 
          System.out.println("Area: "+ area);
          System.out.println("Circumference: "+ circumference);
@@ -75,7 +76,7 @@ public class Sequential {
 		 double fahrenheit, celsius;
 		 
         System.out.print("Enter temperature in Fahrenheit: ");
-        fahrenheit = scanner.nextDouble();
+        fahrenheit = inputUtils.getDouble(scanner);
 
         celsius = (fahrenheit - 32) * 5/9;
         System.out.println("Temperature in Celsius: " + celsius );
@@ -89,9 +90,10 @@ public class Sequential {
 		int length, width, area;
 		
 		System.out.print("What is the length?: ");
-		length = scanner.nextInt();
+		
+		length = inputUtils.getPositiveInteger(scanner);
 		System.out.print("What is the width?: ");
-		width = scanner.nextInt();
+		width = inputUtils.getPositiveInteger(scanner);
 		area = length * width;
 		System.out.println("Area of the rectangle: " + area);
 		System.out.println("\n");

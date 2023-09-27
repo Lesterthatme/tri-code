@@ -7,6 +7,7 @@ import java.util.Set;
 public class Selection {
 	private Scanner scanner;
 	private Set<Integer> questionsVisited = new HashSet<Integer>();
+	private InputUtils inputUtils = new InputUtils();
 	
 	public Selection(Scanner scanner) {
 		this.scanner = scanner;
@@ -19,12 +20,12 @@ public class Selection {
 		while(exit != true) {
 			System.out.println("Selection Statement: \n");
 			System.out.println("1. Determine odd or even" + (questionsVisited.contains(1)?" (Visited)":""));
-			System.out.println("2. Determine a year is leap year or not"+ (questionsVisited.contains(2)?" (Visited)":""));
+			System.out.println("2. Determine if a year is a leap year or not"+ (questionsVisited.contains(2)?" (Visited)":""));
 			System.out.println("3. Shipping cost" + (questionsVisited.contains(3)?" (Visited)":""));
 			System.out.println("4. Go back to previous menu");
 			
 			System.out.print("\n Answer: ");
-			questionPicked = scanner.nextInt();
+			questionPicked = inputUtils.getInteger(scanner);
 			
 			if(questionPicked == 1) {
 				this.evenOrOdd();
@@ -49,7 +50,7 @@ public class Selection {
 		System.out.println("Even Or Odd");
 		System.out.println("\n \n");
 		System.out.println("Enter a number: ");
-		int number = scanner.nextInt();
+		int number = inputUtils.getInteger(scanner);
 		
 		if (number % 2 == 0) {
 			System.out.println(number + " is an even number.");
@@ -64,7 +65,7 @@ public class Selection {
 		System.out.println("\n \n");
 		
 		System.out.print("Enter a year: ");
-		int year = scanner.nextInt();
+		int year = inputUtils.getPositiveInteger(scanner);
 
 		if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
 			System.out.println(year + " is a leap year.");
@@ -79,7 +80,8 @@ public class Selection {
 		System.out.println("\n \n");
 		
 		System.out.print("Enter the weight of the package in pounds: ");
-		int weight = scanner.nextInt();
+		int weight = inputUtils.getPositiveInteger(scanner);
+		
 		int cost;
 		
 		if(weight <= 10) {

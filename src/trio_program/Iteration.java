@@ -7,6 +7,7 @@ import java.util.Set;
 public class Iteration {
 	private Scanner scanner;
 	private Set<Integer> questionsVisited = new HashSet<Integer>();
+	private InputUtils inputUtils = new InputUtils();
 	
 	public Iteration(Scanner scanner) {
 		this.scanner = scanner;
@@ -24,8 +25,7 @@ public class Iteration {
 			System.out.println("4. Go back to previous menu");
 			
 			System.out.print("\n Answer: ");
-			questionPicked = scanner.nextInt();
-			
+			questionPicked = inputUtils.getInteger(scanner);
 			if(questionPicked == 1) {
 				this.fibonacciNumbers();
 				questionsVisited.add(1);
@@ -68,8 +68,8 @@ public class Iteration {
 	private void atmSimulation() {
 		System.out.println("ATM Simulation");
 		System.out.println("\n \n");
-		
-		int balance = 50000;
+		System.out.println("Input initial money in ATM account: ");
+    int balance = inputUtils.getPositiveInteger(scanner);
 		ATM atm = new ATM(balance);
 		System.out.println("Initialized bank account with Php " + balance);		
 		boolean exitAtm = false;
@@ -79,13 +79,13 @@ public class Iteration {
 			System.out.println("Press 1 to withraw");
 			System.out.println("Press 2 to exit");
 			System.out.print("Enter your choice: ");
-			answer = scanner.nextInt();
+			answer = inputUtils.getPositiveInteger(scanner);
 			if(answer == 1) {
 				int amountToWithraw;
 				System.out.println("\nCurrent balance: "+atm.getBalance());
 				System.out.println("How much would you like to withraw?");
 				System.out.print("Enter amount here: ");
-				amountToWithraw = scanner.nextInt();
+				amountToWithraw = inputUtils.getPositiveInteger(scanner);
 				if(atm.isWithdrawalValid(amountToWithraw)) {
 					atm.withdraw(amountToWithraw);
 					System.out.println("Updated balance: "+ atm.getBalance() + "\n");
@@ -107,12 +107,12 @@ public class Iteration {
 		
 		int number;
 		System.out.print("Enter a number: ");
-		number = scanner.nextInt();
+		number = inputUtils.getInteger(scanner);
 		
 		for (int i = 1; i <= 10; i++) {
-            int result = number * i;
-            System.out.println(number + " x " + i + " = " + result);
-        }
+        int result = number * i;
+        System.out.println(number + " x " + i + " = " + result);
+    }
 		System.out.println("\n \n");
 	}
 }
